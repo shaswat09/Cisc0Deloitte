@@ -1,0 +1,88 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Net Change Service",
+        "version": "1.0.0",
+        "description": "This Service is used to interact with Net Change"
+    },
+    "servers": [{
+            "url": "/api/v1",
+            "description": "This is the base path of the API"
+        }
+    ],
+    "paths": {
+        "/net-change": {
+            "description": "This endpoint is used to interact with net change service",
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/post-net-change-service-request"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/post-net-change-service-response"
+                                }
+                            }
+                        },
+                        "description": "This status is returned upon successful invocation of net change service"
+                    }
+                },
+                "operationId": "post-net-change-service",
+                "description": "This method is used to update an net change service"
+            }
+        }
+
+    },
+    "components": {
+        "schemas": {
+            "post-net-change-service-request": {
+                "type": "object"
+            },
+
+            "error-response": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "nullable": true,
+                                "type": "string"
+                            },
+                            "status": {
+                                "nullable": true,
+                                "type": "string"
+                            },
+                            "type": {
+                                "nullable": true,
+                                "type": "string"
+                            },
+                            "correlationId": {
+                                "nullable": true,
+                                "type": "string"
+                            },
+                            "message": {
+                                "nullable": true,
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+
+            "post-net-change-service-response": {
+                "type": "object"
+            }
+
+        }
+    }
+}

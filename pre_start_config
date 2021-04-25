@@ -1,0 +1,17 @@
+#!/bin/sh
+
+############### START OF SCRIPT #################
+
+lifecycle=`echo ${CISCO_LIFE}`
+
+echo "Running as Environment : $lifecycle"
+
+echo "Log Level : $logLevel"
+
+echo "$JAVA_HOME/bin/java -jar -Dcisco.life=$lifecycle /apps/brim-sol-net-change-service-0.0.1-SNAPSHOT.jar"
+
+$JAVA_HOME/bin/java -Dcisco.life=$lifecycle -jar /apps/brim-sol-net-change-service-0.0.1-SNAPSHOT.jar
+
+$JAVA_HOME/bin/java -Duser.timezone=America/Los_Angeles
+
+###############END OF SCRIPT##################
